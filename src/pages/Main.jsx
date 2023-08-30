@@ -25,6 +25,7 @@
         const [isLoading, setIsLoading] = useState(true)
         const [postHeader, setPostHeader] = useState("")
         const [postText, setPostText] = useState("")
+        const reversedPosts = [...postsStore].reverse();
 
         const handleHover = ()=>{
           setIsHovered(!isHovered)
@@ -49,7 +50,7 @@
             setTimeout(()=>{setOpenAlert(false)}, 5000)
           }
         }
-
+        
         const handleSubmitPost = ()=>{
           const payload = {id:1, userid: auth.id, header:postHeader, main: postText}
           dispatch(addPost(payload))
@@ -87,7 +88,7 @@
                 <div className="new-post-cont1"><div className={`new-post-rect ${isHovered?"hovered":""}`} onClick={handleOpenModal} onMouseEnter={handleHover} onMouseLeave={handleHover}><AddCircleIcon className="MuiIcon-root" style={{fontSize:"3rem"}}/></div></div>
                 <div className="blogs">
                     <div className="blogs-container">
-                        {isLoading?(<h1>Loading...</h1>):(postsStore.map((post)=>{
+                        {isLoading?(<h1>Loading...</h1>):(reversedPosts.map((post)=>{
                             const username = usersStore.find(user => user.id.toString() === post.userid.toString()).username
                             return(<Post id={post.id} header={post.header} main={post.main} username ={username}/>)
                         }))}
@@ -105,7 +106,7 @@
                     <div className="post-username">{auth.nickname}</div>
                   </div>
                     <TextField id="outlined-basic" label="Заголовок поста" variant="outlined" defaultValue={postHeader} onChange={handlePostHeaderChange}/>
-                    <TextField id="outlined-basic" label="Текст поста" variant="outlined" defaultValue={postText} onChange={handlePostTextChange} style={{width:"700px"}}/>
+                    <TextField id="outlined-basic" label="Текст поста" variant="outlined" defaultValue={postText} onChange={handlePostTextChange} />
                     
                       <div className="submit-login" onClick={handleSubmitPost}>Submit</div>
                   </div>

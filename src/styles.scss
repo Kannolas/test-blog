@@ -4,10 +4,15 @@
 }
 
 $fsB: 40px;
+$fsBs: 30px;
 $fsD: 20px;
+$fsS: 15px;
 $trs: 0.3s;
 $bgC:#45626d;
 $defcol:#222d30;
+$breakpoint-small: 480px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 1024px;
 body{
     overflow-x: hidden;
     margin: 0;
@@ -47,6 +52,7 @@ a{
     width: 320px;
     height: 60px;
     display: flex;
+    margin-right: 20px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -61,6 +67,10 @@ a{
 .logo{
     width: 100px;
     height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
     margin-left: 20px;
     font-family: 'Open Sans';
@@ -462,4 +472,67 @@ a{
     color: black;
     font-family: 'Open Sans';
     font-size: $fsB;
+}
+
+.MuiFormControl-root{
+    width: 500px;
+}
+
+
+//adaptivity
+@media (max-width: $breakpoint-large) {
+    .logo{
+        width: 50px;
+        font-size: $fsBs;
+    }
+
+    .hello{
+        width: 300px;
+        font-size: $fsD;
+    }
+    .search-input-active{
+        width: 100px;
+    }
+}
+
+
+@media (min-width: $breakpoint-medium) and (max-width:$breakpoint-large) {
+    .logo{
+        width: 50px;
+    }
+
+    .hello{
+        width: 200px;
+    }
+    .MuiFormControl-root{
+        width: 300px;
+    }
+    .myposts{
+        font-size: $fsBs;
+    }
+}
+
+
+@media (max-width: $breakpoint-small){
+    .logo{
+        width: 50px;
+    }
+
+    .hello{
+        display: none;
+    }
+    .header-icons{
+        margin: 0;
+        width: 250px;
+    }
+    .MuiFormControl-root{
+        width: 200px;
+    }
+    // .profile-header{
+    //     padding: 10px 10px 10px 10px;
+    // }
+    .profile-username{
+        font-size: $fsBs;
+        width: 100px;
+    }
 }
