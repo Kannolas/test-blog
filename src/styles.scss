@@ -496,7 +496,7 @@ a{
 }
 
 
-@media (min-width: $breakpoint-medium) and (max-width:$breakpoint-large) {
+@media (min-width: $breakpoint-small) and (max-width:$breakpoint-large) {
     .logo{
         width: 50px;
     }
@@ -509,6 +509,13 @@ a{
     }
     .myposts{
         font-size: $fsBs;
+    }
+    .inputForm{
+        width: 50vw;
+    }
+
+    .custom-input{
+        width: 30vw;
     }
 }
 
@@ -534,5 +541,14 @@ a{
     .profile-username{
         font-size: $fsBs;
         width: 100px;
+    }
+
+
+    .inputForm{
+        width: 90vw;
+    }
+
+    .custom-input{
+        width: 50vw;
     }
 }
