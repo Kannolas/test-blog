@@ -39,7 +39,7 @@ function Header(){
                     <div className="search" onClick={handleSearchClick}><SearchIcon style={{fontSize: "2.5rem", color:"white"}} className="search-ico"/></div>
                 </div>
                 
-                <Link to={"/login"}><div className="account"><AccountBoxIcon style={{fontSize: "3.2rem", color: "white"}}/></div></Link>
+                <Link to={auth.isAuth?"/Profile":"/login"}><div className="account"><AccountBoxIcon style={{fontSize: "3.2rem", color: "white"}}/></div></Link>
             </div>
         </div>
     )
